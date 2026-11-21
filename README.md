@@ -21,6 +21,7 @@
 ```text
 tg_relay_bot.py       主程序
 tg-relay-bot.service  systemd 服务示例
+.env.example          环境变量模板（不含真实凭据）
 ```
 
 运行后会在指定位置创建 SQLite 数据库，默认路径为：
@@ -40,13 +41,14 @@ tg-relay-bot.service  systemd 服务示例
 
 ## 配置
 
-创建 root 专用环境文件，例如：
+从项目目录复制环境变量模板到 root 专用环境文件：
 
-```text
-/etc/tg-relay-bot.env
+```bash
+cp .env.example /etc/tg-relay-bot.env
+chmod 600 /etc/tg-relay-bot.env
 ```
 
-内容如下。请将占位符替换为自己的实际值：
+请将模板中的占位符替换为自己的实际值：
 
 ```bash
 TG_RELAY_BOT_TOKEN=<bot-token>
