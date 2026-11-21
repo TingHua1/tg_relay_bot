@@ -1,0 +1,15 @@
+[Unit]
+Description=Telegram DM relay bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+EnvironmentFile=/etc/tg-relay-bot.env
+ExecStart=/usr/bin/python3 /opt/tg-relay-bot/tg_relay_bot.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
